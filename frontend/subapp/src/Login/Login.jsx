@@ -26,7 +26,7 @@ const Login = () => {
     setError("");
 ``
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const response = await axios.post("https://subscriptionapp-10.onrender.com/api/auth/login", { email, password });
       const { token, userId } = response.data;
     
       localStorage.setItem("token", token);

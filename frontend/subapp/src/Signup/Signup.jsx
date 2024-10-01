@@ -14,7 +14,7 @@ const Signup = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    setError(null); // Reset error message
+    setError(null); 
 
     if (!username) {
       setError('Please enter your username');
@@ -31,26 +31,26 @@ const Signup = () => {
       return;
     }
 
-    setLoading(true); // Start loading state
+    setLoading(true); 
 
     try {
      
-      const response = await axios.post('http://localhost:5000/api/auth/signup', { username, email, password });
+      const response = await axios.post('https://subscriptionapp-10.onrender.com/api/auth/signup', { username, email, password });
       const { token, userId } = response.data;
 
-      // Store the token in localStorage or state management
+      
       localStorage.setItem("token", token);
       console.log("Signup successful, user ID:", userId,"token:", token);
-      // Reset form fields after successful signup
+
       setUserName("");
       setEmail("");
       setPassword("");
-      // Optionally redirect to a protected route or show a success message
+      
     } catch (err) {
       console.error('Signup error:', err.response?.data || err);
       setError(err.response?.data?.message || 'Signup failed. Please try again.');
     } finally {
-      setLoading(false); // End loading state
+      setLoading(false); 
     }
   };
 

@@ -24,7 +24,7 @@ const ExpenseChart = () => {
 
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/expenses', {
+      const response = await axios.get('https://subscriptionapp-10.onrender.com/api/expenses', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -48,7 +48,7 @@ const ExpenseChart = () => {
 
   const fetchSubscriptions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/subscriptions', {
+      const response = await axios.get('https://subscriptionapp-10.onrender.com/api/subscriptions', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

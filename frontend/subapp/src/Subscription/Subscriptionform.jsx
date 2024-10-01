@@ -8,14 +8,14 @@ const SubscriptionForm = ({ subscription, onSubmit, onCancel }) => {
   );
   const [startDate, setStartDate] = useState(
     subscription ? subscription.startDate.split("T")[0] : ""
-  ); // Add state for start date
+  );
   const [category, setCategory] = useState(
     subscription ? subscription.category : ""
   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, cost:parseFloat(cost), renewalDate, startDate, category }); // Include start date in the submission
+    onSubmit({ name, cost:parseFloat(cost), renewalDate, startDate, category });
   };
 
   return (
@@ -69,7 +69,7 @@ const SubscriptionForm = ({ subscription, onSubmit, onCancel }) => {
         id="startDate"
         type="date"
         value={startDate}
-        onChange={(e) => setStartDate(e.target.value)} // Handle change for start date
+        onChange={(e) => setStartDate(e.target.value)} 
         required
         className="border border-gray-300 mb-4 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
       />

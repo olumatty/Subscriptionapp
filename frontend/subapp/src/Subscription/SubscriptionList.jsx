@@ -18,7 +18,7 @@ const SubscriptionList = () => {
     console.log("Fetching subscriptions with token:", token);
 
     try {
-      const response = await fetch("http://localhost:5000/api/subscriptions", {
+      const response = await fetch("https://subscriptionapp-10.onrender.com/api/subscriptions", {
         headers: getHeaders(),
       });
       if (!response.ok) {
@@ -38,7 +38,7 @@ const SubscriptionList = () => {
   const addSubscription = async (subscription) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:5000/api/subscriptions", {
+      const response = await fetch("https://subscriptionapp-10.onrender.com/api/subscriptions", {
         method: "POST",
         headers: getHeaders(),
         body: JSON.stringify(subscription),
@@ -58,7 +58,7 @@ const SubscriptionList = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://localhost:5000/api/subscriptions/${editingSubscription._id}`,
+        `https://subscriptionapp-10.onrender.com/api/subscriptions/${editingSubscription._id}`,
         {
           method: "PUT",
           headers: getHeaders(),
@@ -81,7 +81,7 @@ const SubscriptionList = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://localhost:5000/api/subscriptions/${id}`,
+        `https://subscriptionapp-10.onrender.com/api/subscriptions/${id}`,
         {
           method: "DELETE",
           headers: getHeaders(),

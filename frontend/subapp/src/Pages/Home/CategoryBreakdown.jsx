@@ -10,7 +10,7 @@ const SubscriptionTable = () => {
   useEffect(() => {
     const fetchSubscriptions = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/subscriptions", {
+        const response = await axios.get("https://subscriptionapp-10.onrender.com/api/subscriptions", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -38,15 +38,15 @@ const SubscriptionTable = () => {
       return 0;
     }
 
-    const totalDuration = renewal - start; // Duration in milliseconds
-    const elapsedTime = today - start; // Time elapsed since startDate in milliseconds
+    const totalDuration = renewal - start; 
+    const elapsedTime = today - start; 
 
     const totalDays = Math.ceil(totalDuration / (1000 * 3600 * 24)); // Convert to days
     const elapsedDays = Math.ceil(elapsedTime / (1000 * 3600 * 24)); // Convert to days
 
     const daysLeft = totalDays - elapsedDays;
 
-    return daysLeft >= 0 ? daysLeft : 0; // Return 0 if the subscription has expired
+    return daysLeft >= 0 ? daysLeft : 0; 
   };
 
   const sortedSubscriptions = [...subscriptions].sort((a, b) => {

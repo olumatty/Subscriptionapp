@@ -6,21 +6,21 @@ const PlatformManager = () => {
   const [newPlatform, setNewPlatform] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track submitting state
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchPlatforms = async () => {
-      const token = localStorage.getItem("token"); // Retrieve the token from local storage
+      const token = localStorage.getItem("token"); 
 
-      setLoading(true); // Start loading
+      setLoading(true); 
       try {
-        const response = await axios.get("http://localhost:5000/api/platforms", {
+        const response = await axios.get("https://subscriptionapp-10.onrender.com/api/platforms", {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the header
+            Authorization: `Bearer ${token}`,
           },
         });
         console.log("Platforms fetched:", response.data);
-        setPlatforms(response.data); // Update platforms state with fetched data
+        setPlatforms(response.data); 
       } catch (err) {
         console.error("Error fetching platforms:", err);
         if (err.response && err.response.status === 401) {
@@ -29,16 +29,16 @@ const PlatformManager = () => {
           setError("Failed to fetch platforms.");
         }
       } finally {
-        setLoading(false); // End loading
+        setLoading(false); 
       }
     };
 
-    fetchPlatforms(); // Call the fetch function
-  }, []); // Empty dependency array to run on mount only
+    fetchPlatforms(); 
+  }, []); 
 
   const handleAddPlatform = async (e) => {
     e.preventDefault();
-    setError(null); // Clear previous errors
+    setError(null); 
 
     const trimmedPlatform = newPlatform.trim();
     if (!trimmedPlatform) {
@@ -51,13 +51,13 @@ const PlatformManager = () => {
       return;
     }
 
-    setIsSubmitting(true); // Set submitting state to true
+    setIsSubmitting(true);
 
-    const token = localStorage.getItem("token"); // Retrieve the token for the POST request
+    const token = localStorage.getItem("token"); 
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/platforms",
+        "https://subscriptionapp-10.onrender.com/api/platforms",
         {
           name: trimmedPlatform,
         },
