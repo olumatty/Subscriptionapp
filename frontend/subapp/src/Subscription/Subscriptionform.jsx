@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 
 const SubscriptionForm = ({ subscription, onSubmit, onCancel }) => {
   const [name, setName] = useState(subscription ? subscription.name : "");

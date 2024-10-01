@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SubscriptionForm from "./SubscriptionForm";
+import SubscriptionForm from "./Subscriptionform";
 
 const SubscriptionList = () => {
   const [subscriptions, setSubscriptions] = useState([]);
